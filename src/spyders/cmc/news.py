@@ -25,7 +25,7 @@ def get_articles():
             all_articles.append(
                 {
                     "title": title,
-                    "url": BASE_URL + url,
+                    "url": url,
                     "description": description,
                     "tags": [TAG, "Blockchain"]
                 }
