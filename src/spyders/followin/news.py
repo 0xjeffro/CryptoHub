@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 TAG = "Followin News"
-BASE_URL = "https://followin.io/zh-Hans/news"
+BASE_URL = "https://followin.io"
 
 
 def get_articles():
