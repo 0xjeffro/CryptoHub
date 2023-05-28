@@ -37,6 +37,11 @@ def push_to_cubox(api=None, all_articles=None):
             print("Cubox push failed, url: {}, message: {}".format(
                 article["url"],
                 json.loads(req.text)["message"]))
+
+            if json.loads(req.text)["code"] == -3030:
+                print("触发调用限制，暂停推送")
+                return
+
         else:
             print("Cubox push success!")
             urls.insert(0, article["url"])
