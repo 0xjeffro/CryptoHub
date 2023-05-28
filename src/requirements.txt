@@ -1,3 +1,4 @@
 beautifulsoup4==4.9.3
 pygsheets==2.0.6
 requests==2.26.0
+feedparser==6.0.10
