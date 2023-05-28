@@ -10,6 +10,6 @@ if __name__ == '__main__':
     all_articles = []
     all_articles.extend(block_beats.get_articles())
     all_articles.extend(cmc_news.get_articles())
-    all_articles.extend(followin_news.get_articles())
+    # all_articles.extend(followin_news.get_articles())
 
     cubox.push_to_cubox(all_articles=all_articles)
