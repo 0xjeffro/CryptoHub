@@ -17,9 +17,9 @@ def get_articles():
         url = article.find(name='a').get('href')
         description = None
 
-        # 补全url
+        # 若url是本站的相对路径，则跳过
         if url.startswith('/'):
-            url = BASE_URL + url
+            continue
 
         if title is not None and url is not None:
             all_articles.append(
