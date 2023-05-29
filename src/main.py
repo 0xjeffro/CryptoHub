@@ -14,7 +14,7 @@ from spyders.rss_hub import rss as rss_hub_rss
 if __name__ == '__main__':
     all_articles = []
     # all_articles.extend(block_beats.get_articles())
-    # all_articles.extend(cmc_news.get_articles())
+    all_articles.extend(cmc_news.get_articles())
     # all_articles.extend(followin_news.get_articles())
     #all_articles.extend(newsbtc_rss.get_articles())
     #all_articles.extend(pannews_rss.get_articles())
