@@ -1,18 +1,30 @@
 from utils.rss import rss_to_articles
 source = [
-    'https://api.theblockbeats.news/v1/open-api/home-xml',
-    'https://www.newsbtc.com/feed/',
-    'https://medium.com/feed/neworderdao',
-    'https://medium.com/feed/initc3org',
-    'https://medium.com/feed/ethereum-push-notification-service',
+    {
+        'name': 'BlockBeats',
+        'url': 'https://api.theblockbeats.news/v1/open-api/home-xml',
+    },
+    {
+        'name': 'NewsBTC',
+        'url': 'https://www.newsbtc.com/feed/',
+    },
+    {
+        'name': 'NewOrderDAO',
+        'url': 'https://medium.com/feed/neworderdao',
+    },
+    {
+        'name': 'IC3',
+        'url': 'https://medium.com/feed/initc3org',
+    },
 ]
 
 
 def get_articles():
     all_articles = []
-    for rss_link in source:
-        print(rss_link)
-        articles = rss_to_articles(rss_link)
+    for rss in source:
+        articles = rss_to_articles(rss['url'])
+        for article in articles:
+            article['tags'] = [rss['name'], ]
         all_articles.extend(articles)
     return all_articles
 
