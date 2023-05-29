@@ -29,5 +29,6 @@ class Buffer:
 
     def reset(self, urls, times):
         self.db.clear_all_data()
+        urls, times = self.sweep(urls, times)
         self.db.set_all_data(urls, times)
 
