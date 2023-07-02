@@ -1,21 +1,29 @@
 from utils.rss import rss_to_articles
 source = [
+    # {
+    #     'name': 'BlockBeats',
+    #     'url': 'https://api.theblockbeats.news/v1/open-api/home-xml',
+    # },
+    # {
+    #     'name': 'NewsBTC',
+    #     'url': 'https://www.newsbtc.com/feed/',
+    # },
+    # {
+    #     'name': 'NewOrderDAO',
+    #     'url': 'https://medium.com/feed/neworderdao',
+    # },
+    # {
+    #     'name': 'IC3',
+    #     'url': 'https://medium.com/feed/initc3org',
+    # },
     {
-        'name': 'BlockBeats',
-        'url': 'https://api.theblockbeats.news/v1/open-api/home-xml',
+        'name': 'CoinDesk',
+        'url': 'https://www.coindesk.com/arc/outboundfeeds/rss/'
     },
     {
-        'name': 'NewsBTC',
-        'url': 'https://www.newsbtc.com/feed/',
-    },
-    {
-        'name': 'NewOrderDAO',
-        'url': 'https://medium.com/feed/neworderdao',
-    },
-    {
-        'name': 'IC3',
-        'url': 'https://medium.com/feed/initc3org',
-    },
+        'name': 'Cointelegraph',
+        'url': 'https://cointelegraph.com/rss'
+    }
 ]
 
 
