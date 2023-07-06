@@ -26,8 +26,7 @@ if __name__ == '__main__':
     random.shuffle(all_articles)
 
     # print(len(all_articles))
-    apis = os.getenv("CUBOX_APIs")
-    apis = apis.split(',')
-    for api in apis:
-        print("API: ", api)
-        cubox.push_to_cubox(api='https://cubox.cc/c/api/save/' + api, all_articles=all_articles)
+
+    # for api in apis:
+    #     print("API: ", api)
+    cubox.push_to_cubox(all_articles=all_articles)

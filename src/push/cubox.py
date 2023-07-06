@@ -8,11 +8,9 @@ import requests
 from utils import buffer
 
 
-def push_to_cubox(api=None, all_articles=None):
-    print("PUSHING TO " + api)
-    if api is None:
-        api = os.getenv("CUBOX_API")
-        print("CUBOX_API: {}".format(api))
+def push_to_cubox(all_articles=None):
+    apis = os.getenv("CUBOX_APIs")
+    apis = apis.split(',')
 
     buf = buffer.Buffer()
     urls, times = buf.get(sweep=True)
@@ -32,20 +30,22 @@ def push_to_cubox(api=None, all_articles=None):
         }
 
         # Cubox DOC: https://help.cubox.pro/save/89d3/
-        req = requests.post(api, json=data)
+        for api in apis:
+            print("PUSHING TO " + api)
+            req = requests.post('https://cubox.cc/c/api/save/' + api, json=data)
 
-        if json.loads(req.text)["code"] != 200:
-            print("Cubox push failed, url: {}, message: {}".format(
-                article["url"],
-                json.loads(req.text)["message"]))
+            if json.loads(req.text)["code"] != 200:
+                print("Cubox push failed, url: {}, message: {}".format(
+                    article["url"],
+                    json.loads(req.text)["message"]))
 
-            if json.loads(req.text)["code"] == -3030:
-                print("触发调用限制，暂停推送")
-                return
+                if json.loads(req.text)["code"] == -3030:
+                    print("触发调用限制，暂停推送")
+                    return
 
-        else:
-            print("Cubox push success!")
-            urls.insert(0, article["url"])
-            times.insert(0, str(time.time()))
+            else:
+                print("Cubox push success!")
+                urls.insert(0, article["url"])
+                times.insert(0, str(time.time()))
 
     buf.reset(urls, times)
