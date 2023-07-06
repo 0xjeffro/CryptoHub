@@ -9,6 +9,7 @@ from utils import buffer
 
 
 def push_to_cubox(api=None, all_articles=None):
+    print("PUSHING TO " + api)
     if api is None:
         api = os.getenv("CUBOX_API")
         print("CUBOX_API: {}".format(api))
